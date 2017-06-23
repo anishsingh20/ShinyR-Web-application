@@ -18,6 +18,8 @@ library(shiny)
 ui <- fluidPage(
   
     #*Input() functions 
+    #we will identify this input using input$num as a Reactive value
+
     sliderInput(inputId="num",label="Slider Input",value=10,min=0
                 ,max=100) ,
   
@@ -31,6 +33,7 @@ ui <- fluidPage(
 server<-function(input,output) {
   #Save objects to display to output$
   #render()* builds reactive output to display in UI
+  #renderPlot() is a Reactive function which uses a reactive value
   output$hist<-renderPlot({ 
                 #All R code comes inside these {}
                 
