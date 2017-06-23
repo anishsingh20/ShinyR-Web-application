@@ -48,6 +48,7 @@ server<-function(input,output) {
                   hist(rnorm(data()),main=isolate(input$title),
                        xlab="Numbers",ylab="Count",col="red",border="black",density=-0.5) 
                           })
+  
   #outputting the summary statistics defined above in UI
   output$stats<-renderPrint({summary(data())   
                         })
