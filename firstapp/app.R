@@ -8,44 +8,20 @@
 #loading the Shiny Package
 library(shiny)
 
-
+#1) Define the UI ie the Desing and Layout of the Application
 #Under the Hood Shiny uses Twitter Bootstrap as a CSS framework
-# Define UI for application that draws a histogram
+# Add elements to the app as arguments to fluidPage()
 ui <- fluidPage(
-   
-   # Application title
-   titlePanel("Old Faithful Geyser Data"),
-   
-   # Sidebar with a slider input for number of bins 
-   sidebarLayout(
-      sidebarPanel(
-         sliderInput("bins",
-                     "Number of bins:",
-                     min = 1,
-                     max = 50,
-                     value = 30)
-      ),
-      
-      # Show a plot of the generated distribution
-      mainPanel(
-         plotOutput("distPlot")
-      )
-   )
-)
+    {"Hello World"},
+    "This is Anish")
 
-# Define server logic required to draw a histogram
-server <- function(input, output) {
-   
-   output$distPlot <- renderPlot({
-      # generate bins based on input$bins from ui.R
-      x    <- faithful[, 2] 
-      bins <- seq(min(x), max(x), length.out = input$bins + 1)
-      
-      # draw the histogram with the specified number of bins
-      hist(x, breaks = bins, col = 'darkgray', border = 'white')
-   })
-}
+#This is simply a HTML code 
+ui
 
-# Run the application 
-shinyApp(ui = ui, server = server)
+#2)Define Instructions for the server and how the app will interact 
+server<-function(input,output) {}
+
+# Run the application using ShinyR
+?shinyApp
+shinyApp(ui = ui , server)
 
