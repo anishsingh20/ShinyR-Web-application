@@ -22,6 +22,7 @@ ui <- fluidPage(
 
     sliderInput(inputId="num",label="Slider Input",value=10,min=0
                 ,max=100) ,
+    textInput(inputId="title",label="Input the title") ,
   
     #*Output() functions
       plotOutput(outputId = "hist")
@@ -37,7 +38,7 @@ server<-function(input,output) {
   output$hist<-renderPlot({ 
                 #All R code comes inside these {}
                 
-                  hist(rnorm(input$num),main="Histogram of 100 Random Normal Numbers",
+                  hist(rnorm(input$num),main=input$title,
                        xlab="Numbers",ylab="Count") }
                 )
 }
