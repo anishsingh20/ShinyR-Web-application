@@ -23,6 +23,8 @@ ui <- fluidPage(
     sliderInput(inputId="num",label="Slider Input",value=10,min=0
                 ,max=100) ,
     textInput(inputId="title",label="Input the title") ,
+    actionButton(inputId="click", label = "Submit!", width="400px")
+    
   
     #*Output() functions
       plotOutput(outputId = "hist") ,
